@@ -1,0 +1,35 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as  np
+cars_df=pd.read_csv('mtcars.csv')
+print(cars_df)
+
+a=plt.scatter(cars_df['mpg'],cars_df['wt'],marker='*')
+print(a)
+plt.xlabel('mpg')
+plt.ylabel('wt')
+plt.title('mpg vs wt')
+plt.show()
+
+trans=cars_df['am'].value_counts()
+print(trans)
+trans.plot.box()
+plt.xlabel('Transmission')
+plt.title('boxplot')
+plt.show()
+
+cars_df['mpg'].plot(kind='box')
+plt.xlabel('mpg')
+plt.title('boxplot')
+plt.show()
+
+min_value=np.min(cars_df['mpg'])
+q1=np.percentile(cars_df['mpg'],25)
+median=np.median(cars_df['mpg'])
+q3=np.percentile(cars_df['mpg'],75)
+max_value=np.max(cars_df['mpg'])
+print('Minimum value:',min_value)
+print('First Quartile:',q1)
+print('Second Quartile:',median)
+print('Third Quartile:',q3)
+print('Maximum value:',max_value)
